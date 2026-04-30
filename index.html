@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SÜRA — дизайн-студия</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #f6f6f6;
+      --black: #0a0a0a;
+      --grey: #ececec;
+      --orange: #ff8a36;
+      --dark: #000200;
+    }
+
+    body {
+      font-family: 'Inter Tight', sans-serif;
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1440px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      border-radius: 14px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    nav .logo-wrap {
+      height: 51px;
+      width: 218px;
+      mix-blend-mode: difference;
+      position: relative;
+      flex-shrink: 0;
+    }
+    nav .logo-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+    nav .nav-contact {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    nav .nav-contact span {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 22px;
+      letter-spacing: -0.1px;
+      color: var(--white);
+      mix-blend-mode: difference;
+      white-space: nowrap;
+    }
+    nav .nav-contact .avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    nav .nav-contact .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    nav .nav-projects {
+      background: var(--white);
+      height: 68px;
+      padding: 10px 32px 6px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    nav .nav-projects span {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 22px;
+      letter-spacing: -0.1px;
+      color: var(--black);
+      white-space: nowrap;
+    }
+
+    /* ── WRAPPER ── */
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* ── SCREEN 1: HERO ── */
+    .screen-hero {
+      width: 100%;
+      height: 960px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .screen-hero .bg-img {
+      position: absolute;
+      width: 1614px;
+      height: 1008px;
+      top: 50%;
+      left: calc(50% + 67px);
+      transform: translate(-50%, -50%);
+    }
+    .screen-hero .bg-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .screen-hero .info-card {
+      position: absolute;
+      top: calc(50% + 325px);
+      left: calc(50% + 322px);
+      transform: translate(-50%, -50%);
+      width: 238px;
+      height: 270px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .screen-hero .info-card .tagline-block { display: flex; flex-direction: column; gap: 6px; }
+    .screen-hero .info-card .dot {
+      width: 6px; height: 6px;
+      background: var(--white);
+      border-radius: 20px;
+    }
+    .screen-hero .info-card .tagline {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 22px;
+      letter-spacing: -0.1px;
+      color: var(--white);
+    }
+    .screen-hero .info-card .services-block { display: flex; flex-direction: column; gap: 6px; }
+    .screen-hero .info-card .services {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .screen-hero .info-card .services p {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 16px;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .screen-hero .projects-link {
+      position: absolute;
+      left: 142px;
+      top: 298px;
+      display: flex;
+      align-items: center;
+      padding-right: 3px;
+    }
+    .screen-hero .projects-link .arrow-icon {
+      width: 16px; height: 18px;
+      margin-right: -3px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .screen-hero .projects-link .arrow-icon img { width: 100%; height: 100%; display: block; }
+    .screen-hero .projects-link span {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 22px;
+      letter-spacing: -0.1px;
+      color: var(--white);
+      white-space: nowrap;
+      margin-right: -3px;
+    }
+
+    .screen-hero .sura-logo {
+      position: absolute;
+      left: 537px;
+      top: 790px;
+      mix-blend-mode: difference;
+    }
+    .screen-hero .sura-logo .v1 { position: absolute; width: 92.807px; height: 115.241px; left: 0; top: 34.66px; }
+    .screen-hero .sura-logo .v2 { position: absolute; width: 94.652px; height: 149.103px; left: 102.62px; top: 0; }
+    .screen-hero .sura-logo .v3 { position: absolute; width: 61.839px; height: 113.144px; left: 212.22px; top: 34.56px; }
+    .screen-hero .sura-logo .v4 { position: absolute; width: 93.584px; height: 115.341px; left: 272.42px; top: 34.66px; }
+    .screen-hero .sura-logo img { display: block; width: 100%; height: 100%; }
+
+    /* ── SCREEN 2: PHILOSOPHY ── */
+    .screen-philosophy {
+      width: 1440px;
+      height: 960px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #000200 27.885%, #57354c 66.346%);
+    }
+
+    .screen-philosophy .bg-img {
+      position: absolute;
+      width: 1440px;
+      height: 803px;
+      left: 0;
+      top: 3px;
+    }
+    .screen-philosophy .bg-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .screen-philosophy .sura-wordmark {
+      position: absolute;
+      width: 366px;
+      height: 661px;
+      left: 537px;
+      top: 48px;
+    }
+    .screen-philosophy .sura-wordmark img { width: 100%; height: 100%; display: block; }
+
+    .screen-philosophy .tagline {
+      position: absolute;
+      left: 50%;
+      top: calc(50% + 326px);
+      transform: translateX(-50%);
+      width: 594px;
+      font-size: 42.161px;
+      font-weight: 600;
+      line-height: 35.134px;
+      letter-spacing: -0.4685px;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .screen-philosophy .img-left {
+      position: absolute;
+      width: 241px;
+      height: 245px;
+      left: 92px;
+      top: 772px;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .screen-philosophy .img-left img { width: 100%; height: 100%; object-fit: cover; }
+
+    .screen-philosophy .img-right-wrap {
+      position: absolute;
+      width: 273.784px;
+      height: 308.995px;
+      left: 1175px;
+      top: 806px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .screen-philosophy .img-right {
+      transform: rotate(-13.75deg);
+      width: 217px;
+      height: 265px;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .screen-philosophy .img-right img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── SCREEN 3: PROJECTS ── */
+    .screen-projects {
+      width: 1440px;
+      background: var(--grey);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding-top: 150px;
+      padding-right: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* stacked logo cards sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 129px;
+      border-radius: 20px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .sidebar-card {
+      width: 100%;
+      height: 83px;
+      border-radius: 0 20px 20px 0;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .sidebar-card.white { background: var(--white); }
+    .sidebar-card.orange { background: var(--orange); }
+
+    .sidebar-card .inner-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+    }
+    .sidebar-card .inner-logo img { width: 159px; height: 48px; display: block; }
+
+    .sidebar-card .hamburger {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 18px;
+    }
+    .sidebar-card .hamburger .line { background: var(--black); height: 4px; width: 100%; }
+    .sidebar-card .hamburger .line.tall { height: 32px; }
+
+    .sidebar-icon-card {
+      width: 83px;
+      height: 83px;
+      border-radius: 0 20px 20px 0;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .sidebar-icon-card img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+    /* project cards */
+    .projects-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: 850px;
+      width: 1270px;
+      overflow: hidden;
+    }
+
+    .project-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .project-card.huli {
+      height: 661px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+    .project-card.huli .bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .project-card.huli .bg img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+
+    .project-card .side-panel {
+      width: 335px;
+      height: 661px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+    .project-card .side-panel .info { display: flex; flex-direction: column; gap: 24px; }
+    .project-card .side-panel .title {
+      font-size: 62px;
+      font-weight: 600;
+      line-height: 60px;
+      letter-spacing: -1px;
+      color: var(--white);
+    }
+    .project-card .side-panel .label-block { display: flex; flex-direction: column; gap: 6px; }
+    .project-card .side-panel .label-block .dot { width: 6px; height: 6px; background: var(--white); border-radius: 20px; }
+    .project-card .side-panel .label-block .label {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 22px;
+      letter-spacing: -0.1px;
+      color: var(--white);
+    }
+    .project-card .side-panel .label-block .desc {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 16px;
+      color: var(--white);
+    }
+    .project-card .side-panel .btn {
+      background: rgba(255,255,255,0.16);
+      height: 68px;
+      width: 100%;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 32px 6px;
+      cursor: pointer;
+    }
+    .project-card .side-panel .btn span {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 22px;
+      letter-spacing: -0.1px;
+      color: var(--white);
+      white-space: nowrap;
+      padding-bottom: 6px;
+    }
+
+    .project-card.image {
+      height: 661px;
+      overflow: hidden;
+    }
+    .project-card.image img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+    .project-card.image .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.2);
+      border-radius: 20px;
+    }
+
+    /* ── SCREEN 4: SERVICES ── */
+    .screen-services {
+      width: 1440px;
+      background: var(--grey);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      padding: 150px;
+      overflow: hidden;
+    }
+
+    .services-row {
+      display: flex;
+      gap: 20px;
+      width: 1141px;
+    }
+
+    .service-card {
+      flex: 1 0 0;
+      height: 367px;
+      background: var(--white);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      overflow: hidden;
+      padding: 10px;
+      position: relative;
+    }
+
+    .service-card .dots {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      justify-content: center;
+    }
+    .service-card .dots .dot {
+      width: 8px; height: 8px;
+      background: var(--black);
+      border-radius: 20px;
+    }
+    .service-card .name {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 22px;
+      letter-spacing: -0.1px;
+      color: var(--black);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* communication card has an image */
+    .service-card.comm {
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+    }
+    .service-card.comm .top {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .service-card.comm .img-wrapper {
+      position: absolute;
+      width: 310px;
+      height: 290px;
+      left: 28.5px;
+      top: 161px;
+      overflow: hidden;
+    }
+    .service-card.comm .img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+    .service-card.comm .bracket-icon {
+      position: absolute;
+      width: 80px;
+      height: 88px;
+      left: 143.5px;
+      top: 100px;
+    }
+    .service-card.comm .bracket-icon img { width: 100%; height: 100%; display: block; }
+
+    /* ── SCREEN 5: CLIENTS & TEAM ── */
+    .screen-clients {
+      width: 1440px;
+      background: var(--grey);
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: 150px 20px;
+      overflow: hidden;
+    }
+
+    .section-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .section-title {
+      font-size: 62px;
+      font-weight: 600;
+      line-height: 60px;
+      letter-spacing: -1px;
+      color: var(--black);
+      white-space: nowrap;
+    }
+
+    .list-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 497px;
+    }
+
+    .list-item {
+      display: flex;
+      align-items: center;
+      height: 36px;
+    }
+
+    .list-item .name {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 32px;
+      letter-spacing: -0.4px;
+      color: var(--black);
+      white-space: nowrap;
+    }
+
+    .list-item .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin-right: 12px;
+      margin-top: 6px;
+    }
+    .list-item .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── SCREEN 6: FOOTER / CONTACT ── */
+    .screen-footer {
+      width: 1440px;
+      height: 960px;
+      background: var(--grey);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .screen-footer .bg-texture {
+      position: absolute;
+      inset: -29.9% -17.43% -42.4% -15.56%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .screen-footer .bg-texture img {
+      transform: rotate(90deg) scaleY(-1);
+      width: 1654px;
+      height: 1915px;
+      display: block;
+    }
+
+    .screen-footer .bg-img {
+      position: absolute;
+      width: 2124px;
+      height: 1186px;
+      left: -342px;
+      top: -53px;
+    }
+    .screen-footer .bg-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .screen-footer .social-buttons {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      width: 1399px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .screen-footer .social-group { display: flex; gap: 20px; align-items: center; }
+
+    .social-btn {
+      background: var(--black);
+      height: 68px;
+      width: 238px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 32px 6px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .social-btn span {
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 22px;
+      letter-spacing: -0.1px;
+      color: var(--white);
+      white-space: nowrap;
+      padding-bottom: 6px;
+      text-align: center;
+    }
+
+    .screen-footer .sura-wordmark {
+      position: absolute;
+      width: 366px;
+      height: 832px;
+      left: 537px;
+      top: 108px;
+    }
+    .screen-footer .sura-wordmark img { width: 100%; height: 100%; display: block; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="logo-wrap">
+    <img src="http://localhost:3845/assets/4f84909e1820a30f51030441bb9bba82a0e697e2.svg" alt="SÜRA" />
+  </div>
+  <div class="nav-contact">
+    <span>связаться →</span>
+    <div class="avatar">
+      <img src="http://localhost:3845/assets/bee2f3fd60132d53167b5f22f07f804476e840b6.png" alt="" />
+    </div>
+  </div>
+  <div class="nav-projects">
+    <span>все проекты →</span>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- ── SCREEN 1: HERO ── -->
+  <section class="screen-hero">
+    <div class="bg-img">
+      <img src="http://localhost:3845/assets/3f63f1b5998826bb2b8cb2f94ac4411e256d3183.png" alt="" />
+    </div>
+
+    <div class="projects-link">
+      <div class="arrow-icon">
+        <img src="http://localhost:3845/assets/48ba95d0bd376403d1a9433643562180f498f96c.svg" alt="" />
+      </div>
+      <span>→проекты</span>
+    </div>
+
+    <div class="info-card">
+      <div class="tagline-block">
+        <div class="dot"></div>
+        <p class="tagline">дизайн-студия свободная в идеях и строгая в структуре</p>
+      </div>
+      <div class="services-block">
+        <div class="dot"></div>
+        <div class="services">
+          <p>коммуникация</p>
+          <p>брендинг</p>
+          <p>веб-дизайн</p>
+          <p>ux/ui дизайн</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sura-logo" style="width:366px;height:149px;">
+      <div class="v1"><img src="http://localhost:3845/assets/5d1036a5e9252a6464e5e135f13b6797e502e28d.svg" alt="" /></div>
+      <div class="v2"><img src="http://localhost:3845/assets/425459cf2d1dbc3727e9551eaba3c051f179a515.svg" alt="" /></div>
+      <div class="v3"><img src="http://localhost:3845/assets/72199e422d50b5638801e2c5c04308fc4804a938.svg" alt="" /></div>
+      <div class="v4"><img src="http://localhost:3845/assets/eacaa78c2c653bfe41fccc78d959e17be6185d03.svg" alt="" /></div>
+    </div>
+  </section>
+
+  <!-- ── SCREEN 2: PHILOSOPHY ── -->
+  <section class="screen-philosophy">
+    <div class="bg-img">
+      <img src="http://localhost:3845/assets/6ba284626c74565a94875875b1574a59aa00a8d6.png" alt="" />
+    </div>
+    <div class="sura-wordmark">
+      <img src="http://localhost:3845/assets/434052ededd12cfa5345582db7aa9452c4aca0cb.svg" alt="SÜRA" />
+    </div>
+    <p class="tagline">cоздавая дизайн, мы соединяем смелое мышление и системность</p>
+    <div class="img-left">
+      <img src="http://localhost:3845/assets/639983749bb9404d02ab925fe9844a2388bee0f3.png" alt="" />
+    </div>
+    <div class="img-right-wrap">
+      <div class="img-right">
+        <img src="http://localhost:3845/assets/639983749bb9404d02ab925fe9844a2388bee0f3.png" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCREEN 3: PROJECTS ── -->
+  <section class="screen-projects">
+    <!-- sidebar stacked cards -->
+    <div class="sidebar">
+      <div class="sidebar-card white" style="z-index:6">
+        <div class="inner-logo">
+          <img src="http://localhost:3845/assets/0ba90ff9740f1eb82acbe177c22a0c480d8b4f46.svg" alt="SÜRA" />
+        </div>
+      </div>
+      <div class="sidebar-icon-card" style="z-index:5">
+        <img src="http://localhost:3845/assets/426897cc86ab351cf817ed6d500c3fb062fe5f05.svg" alt="" />
+      </div>
+      <div class="sidebar-icon-card" style="z-index:4">
+        <img src="http://localhost:3845/assets/0d062ca4e06900126cae7bb431f182d5c516aae1.svg" alt="" />
+      </div>
+      <div class="sidebar-icon-card" style="z-index:3">
+        <img src="http://localhost:3845/assets/cd2a8a8c1f3ac40c10dee16892302b6e9b289791.svg" alt="" />
+      </div>
+      <div class="sidebar-icon-card" style="z-index:2">
+        <img src="http://localhost:3845/assets/53d878a21ea8c667d55e9bb939e9fdb1d7a5ce2a.svg" alt="" />
+      </div>
+      <div class="sidebar-card orange" style="z-index:1">
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line tall"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- project cards -->
+    <div class="projects-cards">
+      <div class="project-card huli">
+        <div class="bg">
+          <img src="http://localhost:3845/assets/c2fa761e308794e70ef764d7760b3a96975c70ef.png" alt="" />
+        </div>
+        <div class="side-panel">
+          <div class="info">
+            <p class="title">huli</p>
+            <div class="label-block">
+              <div class="dot"></div>
+              <p class="label">айдентика</p>
+            </div>
+            <div class="label-block">
+              <div class="dot"></div>
+              <p class="desc">спортивный сервис для людей для жизни для всех на свете тягать гири качалка</p>
+            </div>
+          </div>
+          <div class="btn"><span>кейс →</span></div>
+        </div>
+      </div>
+      <div class="project-card image" style="position:relative">
+        <img src="http://localhost:3845/assets/5645b19c36391410105e73ef4235e183975eb25c.png" alt="" />
+        <div class="overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCREEN 4: SERVICES ── -->
+  <section class="screen-services">
+    <div class="services-row">
+      <!-- брендинг -->
+      <div class="service-card">
+        <div class="dots"><div class="dot"></div></div>
+        <p class="name">брендинг</p>
+      </div>
+      <!-- коммуникация -->
+      <div class="service-card comm">
+        <div class="top">
+          <div class="dots"><div class="dot"></div><div class="dot"></div></div>
+          <p class="name">коммуникация</p>
+        </div>
+        <div class="img-wrapper">
+          <img src="http://localhost:3845/assets/b10ca635c8e0bd2729cfe4b7f622cc025d0a9eb3.png" alt="" />
+        </div>
+        <div class="bracket-icon">
+          <img src="http://localhost:3845/assets/f8e4bd008d9512fea3fb3efaf18700f4144b0acd.svg" alt="" />
+        </div>
+      </div>
+      <!-- диджитал -->
+      <div class="service-card">
+        <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        <p class="name">диджитал</p>
+      </div>
+    </div>
+    <div class="services-row">
+      <!-- моушн и 3d -->
+      <div class="service-card">
+        <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        <p class="name">моушн и 3d</p>
+      </div>
+      <!-- упаковка -->
+      <div class="service-card">
+        <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        <p class="name">упаковка</p>
+      </div>
+      <!-- дизайн-поддержка -->
+      <div class="service-card">
+        <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        <p class="name">дизайн-поддержка</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCREEN 5: CLIENTS & TEAM ── -->
+  <section class="screen-clients">
+    <!-- Clients -->
+    <div class="section-row">
+      <h2 class="section-title">клиенты</h2>
+      <div class="list-col">
+        <div class="list-item"><span class="name">avito</span></div>
+        <div class="list-item"><span class="name">hoff</span></div>
+        <div class="list-item"><span class="name">baresto</span></div>
+        <div class="list-item"><span class="name">sally</span></div>
+        <div class="list-item"><span class="name">crona</span></div>
+      </div>
+    </div>
+    <!-- Team -->
+    <div class="section-row">
+      <h2 class="section-title">команда</h2>
+      <div class="list-col">
+        <div class="list-item">
+          <div class="avatar"><img src="http://localhost:3845/assets/536a7f626372ed7f757d00af603c60b078e19183.png" alt="" /></div>
+          <span class="name">маша журанкова</span>
+        </div>
+        <div class="list-item">
+          <div class="avatar"><img src="http://localhost:3845/assets/536a7f626372ed7f757d00af603c60b078e19183.png" alt="" /></div>
+          <span class="name">антон котов</span>
+        </div>
+        <div class="list-item">
+          <div class="avatar"><img src="http://localhost:3845/assets/536a7f626372ed7f757d00af603c60b078e19183.png" alt="" /></div>
+          <span class="name">аня андреева</span>
+        </div>
+        <div class="list-item">
+          <div class="avatar"><img src="http://localhost:3845/assets/536a7f626372ed7f757d00af603c60b078e19183.png" alt="" /></div>
+          <span class="name">соня ярошко</span>
+        </div>
+        <div class="list-item">
+          <div class="avatar"><img src="http://localhost:3845/assets/536a7f626372ed7f757d00af603c60b078e19183.png" alt="" /></div>
+          <span class="name">маша</span>
+        </div>
+        <div class="list-item">
+          <div class="avatar"><img src="http://localhost:3845/assets/536a7f626372ed7f757d00af603c60b078e19183.png" alt="" /></div>
+          <span class="name">саша</span>
+        </div>
+        <div class="list-item">
+          <div class="avatar"><img src="http://localhost:3845/assets/536a7f626372ed7f757d00af603c60b078e19183.png" alt="" /></div>
+          <span class="name">настя</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCREEN 6: FOOTER ── -->
+  <section class="screen-footer">
+    <div class="bg-texture">
+      <img src="http://localhost:3845/assets/b9d252f88c5f341e502b414c42802820113c1324.svg" alt="" />
+    </div>
+    <div class="bg-img">
+      <img src="http://localhost:3845/assets/6ba284626c74565a94875875b1574a59aa00a8d6.png" alt="" />
+    </div>
+    <div class="social-buttons">
+      <div class="social-group">
+        <div class="social-btn"><span>tg</span></div>
+        <div class="social-btn"><span>linkedin</span></div>
+      </div>
+      <div class="social-group">
+        <div class="social-btn"><span>behance</span></div>
+        <div class="social-btn"><span>****gram</span></div>
+      </div>
+    </div>
+    <div class="sura-wordmark">
+      <img src="http://localhost:3845/assets/0bfacd028cdb0318508b9eae0703653326262cef.svg" alt="SÜRA" />
+    </div>
+  </section>
+
+</div><!-- /page -->
+
+</body>
+</html>

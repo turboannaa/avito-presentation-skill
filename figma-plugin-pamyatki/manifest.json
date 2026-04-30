@@ -1,0 +1,7 @@
+{
+  "name": "Памятки по техникам",
+  "id": "com.alter.pamyatki",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"]
+}
