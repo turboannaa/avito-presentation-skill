@@ -135,4 +135,4 @@ claude
 
 ---
 
-Вопросы → @turboannaa
+Вопросы → @anndreevva
