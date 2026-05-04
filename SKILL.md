@@ -151,7 +151,7 @@ Write the complete `plan.json` to disk. Use these element IDs:
 ### Step 5 — Run the script
 
 ```bash
-python3 create_presentation.py plan.json
+python3 scripts/create_presentation.py plan.json
 ```
 
 The script will output a Google Slides link. Share it with the user.

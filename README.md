@@ -76,7 +76,7 @@ pip3 install google-api-python-client google-auth google-auth-oauthlib
 ### 4.4 Авторизоваться
 
 ```bash
-python3 auth.py
+python3 scripts/auth.py
 ```
 
 Откроется браузер → войди в Google-аккаунт → разреши доступ.
@@ -127,11 +127,11 @@ claude
 
 | Файл | Описание |
 |------|----------|
-| `create_presentation.py` | Основной скрипт сборки |
-| `auth.py` | Одноразовая OAuth авторизация |
-| `showcase_plan.json` | Пример со всеми типами слайдов |
-| `plan.json` | Последний сгенерированный план |
-| `inspect_slides.py` | Утилита — показывает структуру шаблона |
+| `scripts/create_presentation.py` | Основной скрипт сборки |
+| `scripts/auth.py` | Одноразовая OAuth авторизация |
+| `references/showcase_plan.json` | Пример со всеми типами слайдов |
+| `references/plan.json` | Последний сгенерированный план |
+| `scripts/inspect_slides.py` | Утилита — показывает структуру шаблона |
 
 ---
 
