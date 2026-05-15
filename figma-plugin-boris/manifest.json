@@ -1,0 +1,8 @@
+{
+  "name": "Alter Post Creator",
+  "id": "com.alter.post-creator",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"]
+}
