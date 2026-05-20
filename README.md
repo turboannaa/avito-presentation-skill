@@ -73,7 +73,17 @@ pip3 install google-api-python-client google-auth google-auth-oauthlib
 3. Application type: **Desktop app** → **Create**
 4. Скачай JSON → переименуй в `credentials.json` → положи в папку скилла
 
-### 4.4 Авторизоваться
+### 4.4 Добавить себя как тест-пользователя
+
+Новое приложение Google по умолчанию работает в тестовом режиме. Чтобы авторизация прошла без ошибки:
+
+1. **APIs & Services** → **OAuth consent screen**
+2. Прокрути вниз до раздела **Test users** → нажми **Add users**
+3. Введи свой Google-адрес → **Save**
+
+Без этого шага при попытке войти появится предупреждение «Приложение не проверено» и авторизация заблокируется.
+
+### 4.6 Авторизоваться
 
 ```bash
 python3 scripts/auth.py
@@ -111,6 +121,9 @@ claude
 ---
 
 ## Частые вопросы
+
+**При авторизации пишет «Приложение не проверено» / «только для тестировщиков»**
+→ Зайди в Google Cloud Console → **APIs & Services** → **OAuth consent screen** → **Test users** → добавь свой email (шаг 4.4)
 
 **Презентация не создаётся, ошибка 403**
 → Проверь что все три API включены в Google Cloud Console (шаг 4.2)

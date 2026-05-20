@@ -17,11 +17,23 @@ TEMPLATE_ID = '1rSns7QMIMcMAfh77gGQK9V878caYyWLJxJ7WJ55DbCA'
 
 
 def copy_template(drive_service, title: str) -> str:
-    copy = drive_service.files().copy(
-        fileId=TEMPLATE_ID,
-        body={"name": title}
-    ).execute()
-    return copy['id']
+    try:
+        copy = drive_service.files().copy(
+            fileId=TEMPLATE_ID,
+            body={"name": title}
+        ).execute()
+        return copy['id']
+    except Exception as e:
+        if '404' in str(e) or 'notFound' in str(e):
+            print("\nОшибка: шаблон не найден.")
+            print("Возможно, у вас нет доступа к шаблону Авито.")
+            print(f"Попросите владельца открыть доступ к файлу: https://docs.google.com/presentation/d/{TEMPLATE_ID}")
+        elif '403' in str(e):
+            print("\nОшибка: нет прав на копирование шаблона.")
+            print("Убедитесь, что вы прошли авторизацию: python3 scripts/auth.py")
+        else:
+            print(f"\nОшибка при копировании шаблона: {e}")
+        raise
 
 
 def get_all_slide_ids(slides_service, presentation_id: str) -> list[str]:
