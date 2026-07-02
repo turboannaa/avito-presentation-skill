@@ -22,6 +22,8 @@ Creates a Google Slides presentation using the Avito DevRel template. The user p
 
 ## Available slide layouts
 
+### Text-only slides
+
 | Template ID | Layout |
 |-------------|--------|
 | `p` | Title slide |
@@ -37,15 +39,31 @@ Creates a Google Slides presentation using the Avito DevRel template. The user p
 | `g344d1e4037f_7_1448` | 3 key numbers/stats |
 | `g344d1e4037f_7_2026` | Contacts / Q&A |
 
+### Slides with image placeholder
+
+Use these layouts only when the slide is meant to show a screenshot, diagram, or illustration. The image area is reserved for the user to fill in manually (or via `image_url` in plan.json).
+
+| Template ID | Layout |
+|-------------|--------|
+| `g344d1e4037f_7_403` | Title + description left, **large image right** |
+| `g344d1e4037f_7_604` | Title top, image + caption + description |
+| `g344d1e4037f_7_943` | 2 text items left + **image right** |
+| `g344d1e4037f_7_954` | **3 bullet items** left + **image right** |
+| `g344d1e4037f_7_963` | 3 text items left + **image right** (dark variant) |
+
+**When to use image slides:** When the source document mentions «Скрин», «скриншот», «фото», «иллюстрация», or when the slide content is clearly visual (app screenshot, chart, diagram, before/after). Do NOT use image templates for pure-text content.
+
 ## plan.json format
 
 ```json
 {
   "title": "Presentation title",
+  "expected_slide_count": 10,
   "slides": [
     {
       "template_id": "p",
       "description": "Title slide",
+      "image_url": "https://example.com/image.png",
       "element_transforms": {
         "ELEMENT_ID": {"translateX": 154550, "translateY": 2520000}
       },
@@ -57,6 +75,12 @@ Creates a Google Slides presentation using the Avito DevRel template. The user p
   ]
 }
 ```
+
+**`expected_slide_count`** — optional. Set it only when the source document explicitly numbers its sections (e.g. "Slide 1", "## 1.", "Section 3"). The script will abort if the actual slide count doesn't match.
+
+**`image_url`** — optional. A **publicly accessible** direct image URL (no login required). If provided, the image is placed into the template's image placeholder area. If omitted, the placeholder is removed automatically.
+
+⚠️ **IMAGE RULE: `image_url` can only be used in slides whose template has an image placeholder** (a shape with the text «Вставьте картинку сюда»). Using `image_url` on a slide without a placeholder has no effect. Never invent image URLs — only use URLs explicitly provided by the user.
 
 ## Step-by-step instructions
 
@@ -138,6 +162,17 @@ Write the complete `plan.json` to disk. Use these element IDs:
 - Transforms for labels: `{"translateX": X, "translateY": 1958400, "scaleX": 1, "scaleY": 1.8}`
 - Transforms for descriptions: `{"translateX": X, "translateY": 2772000}`
 - X values: 165600 (col 1), 3067200 (col 2), 5986800 (col 3)
+
+**Text + image right (_403):**
+- `g3a04f21b846_0_5286` — title (big, left)
+- `g3a04f21b846_0_5285` — subtitle (left)
+- `g3a04f21b846_0_5287` — description text (left)
+- `g3a04f21b846_0_5288` — image placeholder (right, filled automatically or left for user)
+
+**3 bullets + image right (_954):**
+- `g3a04f21b846_0_5699` — title, `g3a04f21b846_0_5700` — subtitle
+- `g3a04f21b846_0_5701` — bullet 1, `g3a04f21b846_0_5702` — bullet 2, `g3a04f21b846_0_5703` — bullet 3
+- `g3a04f21b846_0_5704` — image placeholder (right)
 
 **Contacts (_2026):**
 - `g3a04f21b846_0_6436` — heading ("Вопросы?")

@@ -1,5 +1,13 @@
 token.json
+google_token.json
 credentials.json
+google_credentials.json
 tz.txt
 .DS_Store
 .claude/
+plan.json
+slide_thumbs.json
+node_modules/
+*.pptx
+*.pptx.png
+*_slide*.png
